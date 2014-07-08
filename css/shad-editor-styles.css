@@ -1,0 +1,23 @@
+.yellow-box {
+	border: 1px solid #C6DB55;
+	background-color: #FFFBCC;
+	color: #424242;
+	padding: 9px 9px;
+}
+.red-box {
+	border: 1px solid #CFADB3;
+	background-color: #FAF2F5;
+	color: #832525;
+	padding: 9px 9px;
+}
+.blue-box {
+	border: 1px solid #A7C2E7;
+	background-color: #D1E4F3;
+	color: #465D7C;
+	padding: 9px 9px;
+}
+
+.external-link {
+    background: url(images/external-link-icon.png) center right no-repeat;
+    padding-right: 13px;
+}

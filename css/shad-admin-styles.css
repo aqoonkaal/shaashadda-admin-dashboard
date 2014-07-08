@@ -1,0 +1,4 @@
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+content: url(images/logo-small-grey.png);
+top: 2px;
+}
