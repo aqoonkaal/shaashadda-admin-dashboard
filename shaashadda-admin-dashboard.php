@@ -26,6 +26,8 @@ License: GPLv2 or later
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if ( ! defined( 'ABSPATH' ) ) die( "Can not load this file directly" );
+
 /*******************************************
 * global variables
 *******************************************/
@@ -65,7 +67,7 @@ if ( !defined( 'SHAD_PLUGIN_FILE' ) ) {
 * wp_register_style('style-name',  SHAD_PLUGIN_URL . 'css/file-name.css', SHAD_PLUGIN_VERSION );
 */
 if ( !defined( 'SHAD_PLUGIN_VERSION' ) ) {
-	define( 'SHAD_PLUGIN_VERSION', '2.1.0' );
+	define( 'SHAD_PLUGIN_VERSION', '0.1.1' );
 }
 
 /*******************************************
