@@ -3,7 +3,7 @@
 Plugin Name: Shaashadda Admin Dashboard
 Plugin URI: http://aqoonkaal.com/
 Description: Maaraynta shaashadda Dhashboard ee laga hago WordPress
-Version: 3.1.0
+Version: 0.1.1
 Author: Aqoonkaal
 Author URI: http://aqoonkaal.com/afeef/
 Contributors: aqoonkaal
