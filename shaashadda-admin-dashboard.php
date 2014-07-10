@@ -26,7 +26,7 @@ License: GPLv2 or later
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if ( ! defined( 'ABSPATH' ) ) die( "Can not load this file directly" );
+if ( ! defined( 'ABSPATH' ) ) die( "Cannot load this file directly" );
 
 /*******************************************
 * global variables
@@ -76,7 +76,7 @@ if ( !defined( 'SHAD_PLUGIN_VERSION' ) ) {
 
 include( SHAD_PLUGIN_DIR . 'includes/admin-dashboard-fuctions.php' );
 
-require_once( 'BFIGitHubPluginUploader.php' );
+require_once( SHAD_PLUGIN_DIR . 'BFIGitHubPluginUploader.php' );
 if ( is_admin() ) {
     new BFIGitHubPluginUpdater( __FILE__, 'aqoonkaal', "shaashadda-admin-dashboard" );
 }
