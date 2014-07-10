@@ -3,7 +3,7 @@
 Plugin Name: Shaashadda Admin Dashboard
 Plugin URI: http://aqoonkaal.com/
 Description: Maaraynta shaashadda Dhashboard ee laga hago WordPress
-Version: 0.1.1
+Version: 1.3
 Author: Aqoonkaal
 Author URI: http://aqoonkaal.com/afeef/
 Contributors: aqoonkaal
@@ -59,7 +59,7 @@ if ( !defined( 'SHAD_PLUGIN_URL' ) ) {
 * eg: register_activation_hook( SHAD_PLUGIN_FILE, 'shad_rewrite_flush' );
 */
 if ( !defined( 'SHAD_PLUGIN_FILE' ) ) {
-	define( 'SHAD_PLUGIN_FILE', __FILE__ );
+    define( 'SHAD_PLUGIN_FILE', __FILE__ );
 }
 
 /*
@@ -67,7 +67,7 @@ if ( !defined( 'SHAD_PLUGIN_FILE' ) ) {
 * wp_register_style('style-name',  SHAD_PLUGIN_URL . 'css/file-name.css', SHAD_PLUGIN_VERSION );
 */
 if ( !defined( 'SHAD_PLUGIN_VERSION' ) ) {
-	define( 'SHAD_PLUGIN_VERSION', '0.1.1' );
+    define( 'SHAD_PLUGIN_VERSION', '1.3' );
 }
 
 /*******************************************
