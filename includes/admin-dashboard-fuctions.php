@@ -1,6 +1,6 @@
 <?php
 /**
-* Faylka maaraynta shaashadda  
+* Faylka maaraynta shaashadda
 */
 
 class SHAD_Admin_Dashboard_Customization {
@@ -8,7 +8,7 @@ class SHAD_Admin_Dashboard_Customization {
     /*******************************************
     * Constructor
     *******************************************/
-  
+
     function __construct() {
 
         //register an activation hook to add user role
@@ -16,7 +16,7 @@ class SHAD_Admin_Dashboard_Customization {
 
         // Add custom styles to login page
         add_action( 'login_head', array( &$this, 'shad_login_styles' ) );
-    
+
         // Change login logo's title
         add_filter( 'login_headertitle', array( &$this,'shad_login_header_title' ) );
 
@@ -38,7 +38,7 @@ class SHAD_Admin_Dashboard_Customization {
 
         //Add custom footer text to dashboard
         add_filter( 'admin_footer_text', array( &$this, 'shad_admin_footer_text' ) );
-     
+
         // Add custom link to admin bar
         add_action( 'wp_before_admin_bar_render', array( &$this, 'shad_custom_link_admin_bar' ) );
 
@@ -54,7 +54,7 @@ class SHAD_Admin_Dashboard_Customization {
         // Attach callback to 'tiny_mce_before_init'
         add_filter( 'tiny_mce_before_init', array( &$this, 'shad_mce_before_init_formats') );
 
-        // Add custom stylesheet to the website front-end with hook 'wp_enqueue_scripts'  
+        // Add custom stylesheet to the website front-end with hook 'wp_enqueue_scripts'
         add_action( 'wp_enqueue_scripts', array( &$this, 'shad_mce_style_editor_enqueue') );
 
         // No admin login errors
@@ -79,23 +79,23 @@ class SHAD_Admin_Dashboard_Customization {
     *******************************************/
     function add_role() {
         $capabilities = array(
-            'read' => true, 
+            'read' => true,
             'edit_posts' => true,
             'delete_posts' => false
         );
         add_role( 'basic_contributor', 'Basic Contributor', $capabilities );
     }
 
-     
+
     /*******************************************
     * LOGIN PAGE
     *******************************************/
-    
+
     /*
      * Add custom stylesheet to login page
      */
-     function shad_login_styles() {  
-        wp_enqueue_style( 'shad-login-styles', SHAD_PLUGIN_URL . 'css/shad-login-styles.css' ); 
+     function shad_login_styles() {
+        wp_enqueue_style( 'shad-login-styles', SHAD_PLUGIN_URL . 'css/shad-login-styles.css' );
     }
 
     /*
@@ -104,45 +104,45 @@ class SHAD_Admin_Dashboard_Customization {
     function shad_login_header_title( $title ) {
       return 'Booqo bogga hore';
     }
-    
+
     /*
      * Change login logo's URL it links to
      */
     function shad_login_header_url( $url ) {
       return home_url();
     }
-   
+
     /*
      * Add custom message above login form
      */
     function shad_login_message( $message ) {
       return '<p class="message">Waa barta laga galo qaybta hagidda webka.</p>';
-    }    
+    }
 
-     
+
     /*******************************************
     * ADMIN DASHBOARD
     *******************************************/
     function shad_dashboard_setup() {
         // add our dashboard widget
-        wp_add_dashboard_widget( 'shad_dashboard_widget', 
-            'Shaashadda Dashboard Widget', 
+        wp_add_dashboard_widget( 'shad_dashboard_widget',
+            'Shaashadda Dashboard Widget',
             array( &$this, 'dashboard_widget_output' ) );
-        
+
         // remove undesired widgets
         remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
         remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
 
     }
-    
+
     function dashboard_widget_output() {
-        echo 'Kusoo dhawaada shaashadda laga maareeyo websiteka <a href="http://' .  home_url() . '">' . get_bloginfo('name') . '</a>';        
+        echo 'Kusoo dhawaada shaashadda laga maareeyo websiteka <a href="http://' .  home_url() . '">' . get_bloginfo('name') . '</a>';
     }
 
     /*
      * Add favicon to the admin dashboard
      */
-    function shad_admin_favicon() { 
+    function shad_admin_favicon() {
       ?>
       <link rel="shortcut icon" href="<?php echo SHAD_PLUGIN_URL; ?>/css/images/favicon.png" />
       <?php
@@ -186,7 +186,7 @@ class SHAD_Admin_Dashboard_Customization {
        'title' => $newtitle,
        ) );
     }
-    
+
 
     /*******************************************
     * Add quicktags to editor
@@ -194,7 +194,7 @@ class SHAD_Admin_Dashboard_Customization {
      /**
      * QTags.addButton( id, display, arg1, arg2, access_key, title, priority, instance );
      */
-    
+
     function add_quick_tags() {
     ?>
         <script type="text/javascript">
@@ -217,46 +217,46 @@ class SHAD_Admin_Dashboard_Customization {
 
     /**
     * Callback function to filter the MCE settings
-    * Add styles/classes to the "Styles" drop-down 
-    */  
-    function shad_mce_before_init_formats( $init_array ) { 
+    * Add styles/classes to the "Styles" drop-down
+    */
+    function shad_mce_before_init_formats( $init_array ) {
       // Define the style_formats array
-      $style_formats = array( 
+      $style_formats = array(
         // Each array is a format with it's own settings
-         array( 
+         array(
             'title' => 'Yellow Box',
             'block' => 'div',
             'classes' => 'yellow-box',
             'wrapper' => true
         ),
-        array( 
+        array(
             'title' => 'Red Box',
             'block' => 'div',
             'classes' => 'red-box',
             'wrapper' => true
         ),
-         array( 
+         array(
             'title' => 'Blue Box',
             'block' => 'div',
             'classes' => 'blue-box',
             'wrapper' => true
         ),
-         array(  
-            'title' => 'External Link',  
-            'selector' => 'a',  
-            'classes' => 'external-link'  
-            ), 
+         array(
+            'title' => 'External Link',
+            'selector' => 'a',
+            'classes' => 'external-link'
+            ),
       );
       // Insert the array, JSON ENCODED, into 'style_formats'
-      $init_array['style_formats'] = json_encode( $style_formats );      
-      return $init_array;      
+      $init_array['style_formats'] = json_encode( $style_formats );
+      return $init_array;
     }
 
-    /* 
-     * Enqueue stylesheet 
-     */  
-    function shad_mce_style_editor_enqueue() {  
-        wp_enqueue_style( 'shad-styles', SHAD_PLUGIN_URL . 'css/shad-editor-styles.css' ); 
+    /*
+     * Enqueue stylesheet
+     */
+    function shad_mce_style_editor_enqueue() {
+        wp_enqueue_style( 'shad-styles', SHAD_PLUGIN_URL . 'css/shad-editor-styles.css' );
     }
 
     /*******************************************
@@ -269,14 +269,14 @@ class SHAD_Admin_Dashboard_Customization {
     /*******************************************
     *  Remove unncessary header info
     *******************************************/
-    function shad_remove_header_info() {   
+    function shad_remove_header_info() {
         remove_action( 'wp_head', 'feed_links', 2 );
         remove_action( 'wp_head', 'feed_links_extra', 3);
         remove_action( 'wp_head', 'rsd_link');
         remove_action( 'wp_head', 'wlwmanifest_link');
         remove_action( 'wp_head', 'wp_generator');
         remove_action( 'wp_head', 'start_post_rel_link');
-        remove_action( 'wp_head', 'index_rel_link'); 
+        remove_action( 'wp_head', 'index_rel_link');
         remove_action( 'wp_head', 'rel_canonical');
         remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
         remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
@@ -313,30 +313,30 @@ class SHAD_Admin_Dashboard_Customization {
     * Settings functions
     *******************************************/
     // function settings_api_init() {
-         
+
     //      add_settings_section('shad_setting_section',
     //         'Shaashadda Settings Section ',
     //         array( &$this, 'shad_settings_section_callback' ),
     //         'general');
-         
+
     //      add_settings_field('shad_setting_name',
     //         'Shaashadda Setting Name',
     //         array( &$this, 'shad_settings_callback' ),
     //         'general',
     //         'shad_setting_section');
-         
+
     //      register_setting('general','shad_setting_name');
     //  }
-     
+
     //  function shad_settings_section_callback() {
     //      echo '<p>This is the introduction to the settings section.</p>';
     //  }
-     
+
     //  function shad_settings_callback() {
     //      echo '<input name="shad_setting_name" id="shad_setting_name" type="checkbox" value="1" class="code" ' . checked( 1, get_option('shad_setting_name'), false ) . ' /> Shaashadda setting details';
     //  }
 
-    
-  
+
+
 } // end class
 new SHAD_Admin_Dashboard_Customization();
