@@ -102,7 +102,7 @@ class BFIGitHubPluginUpdater {
         // Add our plugin information
         $response->last_updated = $this->githubAPIResult->published_at;
         $response->slug = $this->slug;
-        $response->plugin_name  = $this->pluginData["Name"];
+        $response->plugin_name = $this->pluginData["Name"];
         $response->version = $this->githubAPIResult->tag_name;
         $response->author = $this->pluginData["AuthorName"];
         $response->homepage = $this->pluginData["PluginURI"];
@@ -120,7 +120,7 @@ class BFIGitHubPluginUpdater {
         $response->download_link = $downloadLink;
 
         // We're going to parse the GitHub markdown release notes, include the parser
-        require_once( plugin_dir_path( __FILE__ ) . "Parsedown.php" );
+        require_once( plugin_dir_path( __FILE__ ) . "parsedown.php" );
 
         // Create tabs in the lightbox
         $response->sections = array(

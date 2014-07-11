@@ -3,14 +3,14 @@
 Plugin Name: Shaashadda Admin Dashboard
 Plugin URI: http://aqoonkaal.com/
 Description: Maaraynta shaashadda Dhashboard ee laga hago WordPress
-Version: 1.7
+Version: 1.7.1
 Author: Aqoonkaal
 Author URI: http://aqoonkaal.com/afeef/
 Contributors: aqoonkaal
 License: GPLv2 or later
 */
 
-/*  Copyright 2014  Shaashadda Admin Dashboard  (@aqoonkaal)
+/*  Copyright 2014 Shaashadda Admin Dashboard (@aqoonkaal)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -18,12 +18,12 @@ License: GPLv2 or later
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 if ( ! defined( 'ABSPATH' ) ) die( "Cannot load this file directly" );
@@ -67,7 +67,7 @@ if ( !defined( 'SHAD_PLUGIN_FILE' ) ) {
 * wp_register_style('style-name',  SHAD_PLUGIN_URL . 'css/file-name.css', SHAD_PLUGIN_VERSION );
 */
 if ( !defined( 'SHAD_PLUGIN_VERSION' ) ) {
-    define( 'SHAD_PLUGIN_VERSION', '1.7' );
+    define( 'SHAD_PLUGIN_VERSION', '1.7.1' );
 }
 
 /*******************************************
@@ -76,8 +76,7 @@ if ( !defined( 'SHAD_PLUGIN_VERSION' ) ) {
 
 include( SHAD_PLUGIN_DIR . 'includes/admin-dashboard-fuctions.php' );
 
-require_once( SHAD_PLUGIN_DIR . 'BFIGitHubPluginUploader.php' );
+require_once( 'aqkl-github-plugin-uploader.php' );
 if ( is_admin() ) {
     new BFIGitHubPluginUpdater( __FILE__, 'aqoonkaal', "shaashadda-admin-dashboard" );
 }
-?>
